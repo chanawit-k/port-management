@@ -1,16 +1,52 @@
 import { useState } from 'react'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <h1>tesdddt</h1>,
+    // errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        element: <h1>Index page</h1>,
+      },
+      // {
+      //   path: 'products',
+      //   element: <Products />,
+      // },
+      // {
+      //   path: 'products/:id',
+      //   element: <SingleProduct />,
+      // },
+      // {
+      //   path: 'cart',
+      //   element: <Cart />,
+      // },
+      // { path: 'about', element: <About /> },
+      // {
+      //   path: 'checkout',
+      //   element: <Checkout />,
+      // },
+      // {
+      //   path: 'orders',
+      //   element: <Orders />,
+      // },
+    ],
+  },
+  // {
+  //   path: '/login',
+  //   element: <Login />,
+  //   errorElement: <Error />,
+  // },
+  // {
+  //   path: '/register',
+  //   element: <Register />,
+  //   errorElement: <Error />,
+  // },
+])
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <h1>Template WebSide</h1>
-      <button class="inline-block cursor-pointer rounded-md bg-gray-800 px-4 py-3 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-900">
-        Button
-      </button>
-    </>
-  )
+const App = () => {
+  return <RouterProvider router={router} />
 }
 
 export default App
