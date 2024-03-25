@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { HomeLayout } from './pages'
+import { HomeLayout, Dashboard, History } from './pages'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -9,11 +8,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <h1>Index page</h1>,
+        element: <Dashboard />,
       },
       {
         path: 'history',
-        element: <h1>history</h1>,
+        element: <History />,
       },
       // {
       //   path: 'products/:id',
