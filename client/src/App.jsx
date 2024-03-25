@@ -11,10 +11,10 @@ const router = createBrowserRouter([
         index: true,
         element: <h1>Index page</h1>,
       },
-      // {
-      //   path: 'products',
-      //   element: <Products />,
-      // },
+      {
+        path: 'history',
+        element: <h1>history</h1>,
+      },
       // {
       //   path: 'products/:id',
       //   element: <SingleProduct />,
