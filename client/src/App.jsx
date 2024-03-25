@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { HomeLayout } from './pages'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <h1>tesdddt</h1>,
+    element: <HomeLayout />,
     // errorElement: <Error />,
     children: [
       {
