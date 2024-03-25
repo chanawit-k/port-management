@@ -4,9 +4,9 @@ const NavbarList = () => {
   return (
     <>
       {navData.map((data) => {
-        const { label, href } = data
+        const { id, label, href } = data
         return (
-          <li>
+          <li key={id}>
             <a href={href}>{label}</a>
           </li>
         )
