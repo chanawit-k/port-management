@@ -4,7 +4,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 fixed top-0 w-full z-50 border-b-4 border-black-500">
       <div className="navbar-start">
         <div className="dropdown">
           <div
@@ -37,13 +37,16 @@ const Navbar = () => {
             <NavbarList />
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Port Management</a>
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <a className="btn btn-ghost text-2xl">Port Management</a>
+        <ul className="menu menu-horizontal px-1  hidden lg:flex">
           <NavbarList />
         </ul>
       </div>
+      {/* <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">
+          <NavbarList />
+        </ul>
+      </div> */}
       <div className="navbar-end">
         <a className="btn">Button</a>
       </div>
