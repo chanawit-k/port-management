@@ -1,12 +1,18 @@
-import React from 'react'
-import { FaChartPie } from 'react-icons/fa6'
+import { useState } from 'react'
 import NavbarList from './NavbarList'
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -24,7 +30,9 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 ${
+              menuOpen ? 'block' : 'hidden'
+            }`}
           >
             <NavbarList />
           </ul>
