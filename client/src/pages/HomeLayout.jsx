@@ -4,7 +4,7 @@ const HomeLayout = () => {
   return (
     <>
       <Navbar />
-      <div className="border-solid border-2 border-indigo-600 py-20">
+      <div className="py-20 px-8">
         <Outlet />
       </div>
     </>
