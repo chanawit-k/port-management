@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { HomeLayout, Dashboard, History } from './pages'
+import { HomeLayout, Dashboard, Transaction } from './pages'
+import { action as historyAction } from './pages/Transaction'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -12,7 +13,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'history',
-        element: <History />,
+        element: <Transaction />,
+        action: historyAction,
       },
       // {
       //   path: 'products/:id',
