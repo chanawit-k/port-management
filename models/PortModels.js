@@ -1,17 +1,12 @@
 import mongoose from 'mongoose'
 const portSchema = mongoose.Schema({
   name: String,
-  location: String,
-  users: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  createdOn: { type: Date, default: Date.now },
+  updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  updatedOn: { type: Date, default: Date.now },
   transactions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Transaction' }],
-})
-
-const transactionSchema = mongoose.Schema({
-  description: String,
-  amount: Number,
-  date: { type: Date, default: Date.now },
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  port: { type: mongoose.Schema.Types.ObjectId, ref: 'Port' },
+  stocks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Stock' }],
 })
 
 export default mongoose.model('Port', portSchema)
