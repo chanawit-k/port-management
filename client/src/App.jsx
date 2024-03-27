@@ -1,6 +1,8 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { HomeLayout, Dashboard, Transaction } from './pages'
 import { action as historyAction } from './pages/Transaction'
+import { action as insertPortAction } from './pages/Dashboard'
+import { loader as portLoader } from './pages/Dashboard'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -10,6 +12,8 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Dashboard />,
+        action: insertPortAction,
+        loader: portLoader,
       },
       {
         path: 'history',
