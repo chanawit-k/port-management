@@ -7,43 +7,6 @@ export const createPort = async (req, res) => {
   res.status(StatusCodes.CREATED).json({ port })
 }
 
-// export const getAllPort = async (req, res) => {
-//   try {
-//     const pipeline = [
-//       {
-//         $unwind: '$stocks', // Unwind the 'stocks' array
-//       },
-//       {
-//         $sort: { 'stocks.value': -1 }, // Sort by the 'value' field in descending order
-//       },
-//       {
-//         $group: {
-//           _id: '$_id',
-//           name: { $first: '$name' },
-//           createdBy: { $first: '$createdBy' },
-//           createdOn: { $first: '$createdOn' },
-//           updatedBy: { $first: '$updatedBy' },
-//           updatedOn: { $first: '$updatedOn' },
-//           transactions: { $first: '$transactions' },
-//           stocks: { $push: '$stocks' },
-//         },
-//       },
-//     ]
-//     const ports = await Port.aggregate(pipeline)
-//     // ports.map((port) => {
-//     //   if (port.stocks.length > 5) {
-//     //     return (port.stocks = port.stocks.slice(0, 5))
-//     //   }
-//     // })
-//     res.status(StatusCodes.OK).json({ ports })
-//   } catch (error) {
-//     console.error(error)
-//     res
-//       .status(StatusCodes.INTERNAL_SERVER_ERROR)
-//       .json({ error: 'Could not retrieve port data' })
-//   }
-// }
-
 export const getAllPort = async (req, res) => {
   try {
     const pipeline = [
@@ -96,4 +59,10 @@ export const getAllPort = async (req, res) => {
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ error: 'Could not retrieve port data' })
   }
+}
+
+export const deletePort = async (req, res) => {
+  const { portID } = req.body
+  await Port.findByIdAndDelete(portID)
+  res.status(StatusCodes.OK).json({ msg: 'Delete Success' })
 }
