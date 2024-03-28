@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const userSchema = mongoose.Schema({
   username: String,
   email: String,
+  createdOn: { type: Date, default: Date.now },
+  updatedOn: { type: Date, default: Date.now },
 })
 
 export default mongoose.model('User', userSchema)
