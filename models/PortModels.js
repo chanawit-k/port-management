@@ -5,7 +5,6 @@ const portSchema = mongoose.Schema({
   createdOn: { type: Date, default: Date.now },
   updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   updatedOn: { type: Date, default: Date.now },
-  transactions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Transaction' }],
   stocks: [
     {
       stock: { type: mongoose.Schema.Types.ObjectId, ref: 'Stock' }, // Reference to Stock model
