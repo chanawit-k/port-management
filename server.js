@@ -13,6 +13,7 @@ import path from 'path'
 
 // middleware
 import notFound from './middleware/notfoundMiddleware.js'
+import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js'
 
 const app = express()
 app.use(express.json())
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 
 // middleware
 app.use(notFound)
+app.use(errorHandlerMiddleware)
 
 const port = process.env.PORT || 5100
 const start = async () => {
